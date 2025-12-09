@@ -1209,8 +1209,9 @@ class AudioPro: RCTEventEmitter {
 			return .success
 		}
 
-		commandCenter.skipForwardCommand.preferredIntervals = [NSNumber(value: settingSkipIntervalMs)]
-		commandCenter.skipBackwardCommand.preferredIntervals = [NSNumber(value: settingSkipIntervalMs)]
+		let skipIntervalSeconds = settingSkipIntervalMs / 1000.0
+		commandCenter.skipForwardCommand.preferredIntervals = [NSNumber(value: skipIntervalSeconds)]
+		commandCenter.skipBackwardCommand.preferredIntervals = [NSNumber(value: skipIntervalSeconds)]
 
 		isRemoteCommandCenterSetup = true
 	}
